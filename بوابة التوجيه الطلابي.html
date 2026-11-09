@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>بوابة التوجيه الطلابي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f3;--bg2:#f4ede2;--card:#fffdf9;--ink:#3a3a36;--mute:#7a7468;--g:#6f9275;--gd:#46664f;--p:#f2d6d8;--pd:#c98b93;--line:#e8dfd0;--sh:0 6px 20px rgba(120,100,70,.10);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1d1a;--bg2:#2a2723;--card:#292622;--ink:#f1ebe0;--mute:#b3aa9a;--g:#8db394;--gd:#a9cfb0;--p:#4a3538;--pd:#e3a9b0;--line:#3d3830;--sh:0 6px 20px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#1f1d1a;--bg2:#2a2723;--card:#292622;--ink:#f1ebe0;--mute:#b3aa9a;--g:#8db394;--gd:#a9cfb0;--p:#4a3538;--pd:#e3a9b0;--line:#3d3830;--sh:0 6px 20px rgba(0,0,0,.35)}
+html{color-scheme:light dark;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",Tahoma,Arial,sans-serif;line-height:1.8;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.bar{max-width:1150px;margin:auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--gd);font-size:1.15rem}
+.logo i{font-style:normal;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--g),var(--gd));display:grid;place-items:center;font-size:1.3rem;color:#fff}
+nav{display:flex;gap:4px;margin-inline-start:auto;overflow-x:auto;scrollbar-width:none}
+nav a{padding:6px 12px;border-radius:20px;font-size:.88rem;white-space:nowrap;color:var(--mute);font-weight:500}
+nav a.on,nav a:hover{background:var(--p);color:var(--ink)}
+.hero{background:linear-gradient(135deg,var(--bg2),var(--p));border-bottom:1px solid var(--line);text-align:center;padding:48px 18px}
+.hero .school{color:var(--gd);font-weight:700;font-size:.95rem}
+.hero h1{margin:8px 0;font-size:clamp(1.9rem,5vw,3rem);font-weight:800;color:var(--gd)}
+.hero p{max-width:640px;margin:8px auto 0;color:var(--mute)}
+main{flex:1;width:100%;max-width:1150px;margin:auto;padding:26px 18px}
+h2{font-size:1.4rem;color:var(--gd);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
+h2::after{content:"";flex:1;height:2px;background:var(--line)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--sh);transition:.2s;display:block}
+.sec:hover{transform:translateY(-4px);border-color:var(--g)}
+.sec .ic{font-size:2rem;width:58px;height:58px;border-radius:16px;background:var(--p);display:grid;place-items:center;margin-bottom:10px}
+.sec:nth-child(even) .ic{background:var(--bg2)}
+.sec b{font-size:1.1rem;color:var(--gd)}
+.sec span{display:block;color:var(--mute);font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
+.card img{width:100%;height:auto;max-height:640px;object-fit:contain;background:var(--bg2)}
+.card .bd{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{margin:0;font-size:1.05rem;color:var(--gd)}
+.card p{margin:0;color:var(--ink);font-size:.93rem;white-space:pre-wrap}
+.meta{font-size:.78rem;color:var(--mute)}
+.tag{display:inline-block;background:var(--p);padding:1px 10px;border-radius:12px;font-size:.78rem;width:fit-content}
+.btn{display:inline-block;border:0;background:var(--g);color:#fff;padding:8px 18px;border-radius:24px;font:inherit;font-size:.9rem;cursor:pointer;width:fit-content}
+.btn:hover{background:var(--gd)}
+.btn.ghost{background:var(--p);color:var(--ink)}
+.btn.del{background:transparent;color:var(--pd);border:1px solid var(--pd);padding:3px 12px;font-size:.8rem;margin-top:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chips button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 16px;border-radius:20px;font:inherit;cursor:pointer}
+.chips button.on{background:var(--g);color:#fff;border-color:var(--g)}
+.empty{text-align:center;color:var(--mute);padding:40px 10px;background:var(--card);border:1px dashed var(--line);border-radius:18px}
+.sechead{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 22px;margin-bottom:20px}
+.sechead .ic{font-size:2rem}
+.sechead h1{margin:0;font-size:1.5rem;color:var(--gd)}
+.sechead p{margin:0;color:var(--mute);font-size:.92rem}
+footer{background:var(--card);border-top:1px solid var(--line);text-align:center;padding:22px 18px;color:var(--mute);font-size:.92rem}
+footer b{color:var(--gd)}
+.fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;box-shadow:var(--sh);padding:12px 22px}
+.modal{position:fixed;inset:0;background:rgba(40,35,30,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:40}
+.modal.show{display:flex}
+.form{background:var(--card);border-radius:20px;padding:22px;width:100%;max-width:480px;max-height:90vh;overflow:auto;display:grid;gap:10px}
+.form h3{margin:0;color:var(--gd)}
+.form label{font-size:.85rem;color:var(--mute)}
+.form input,.form select,.form textarea{width:100%;font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:8px}
+@media(max-width:700px){.bar{flex-wrap:wrap}nav{width:100%;margin:0}.hero{padding:34px 16px}}
+.mg-wrap{max-width:660px;margin:auto}
+.mg-page{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--sh)}
+.mg-page h1{font-size:2rem;color:var(--gd);margin:.4em 0}
+.mg-page h2{font-size:1.4rem;color:var(--gd);margin:.4em 0;display:block}
+.mg-page h2::after{display:none}
+.mg-tag{display:inline-block;background:var(--p);color:var(--ink);border-radius:20px;padding:2px 12px;font-size:.85rem;font-weight:700}
+.mg-sub{font-size:1.1rem;font-weight:700}
+.mg-meta{font-size:.9rem;color:var(--mute)}
+.mg-q{background:var(--p);border-inline-start:5px solid var(--g);border-radius:12px;padding:10px 14px;margin:14px 0;font-weight:700}
+.mg-page ol{padding-inline-start:24px}
+.mg-box{border:2px dashed var(--g);border-radius:14px;padding:12px;margin:14px 0}
+.mg-opt,.mg-idx{display:block;width:100%;text-align:start;background:var(--bg2);border:2px solid transparent;border-radius:12px;padding:10px 14px;margin:8px 0;font:inherit;color:var(--ink);cursor:pointer}
+.mg-opt.ok{border-color:#2e9e5b;background:#dff5e7;color:#124a28}
+.mg-opt.no{border-color:#c0392b;background:#fbe1de;color:#6b1c14}
+.mg-idx b{color:var(--gd)}
+.mg-stats{display:flex;gap:10px;margin:14px 0}.mg-stats div{flex:1;background:var(--bg2);border-radius:14px;text-align:center;padding:8px}
+.mg-stats b{display:block;font-size:1.4rem;color:var(--gd)}
+.mg-nav{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
+.mg-nav .btn:disabled{opacity:.35}
+.mg-hide{display:none}
+.mg-prog{text-align:center;font-size:.85rem;color:var(--mute);margin-top:8px}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="logo" href="#home"><i>🌿</i>بوابة التوجيه الطلابي</a><nav id="nav"></nav></div></header>
+<div id="app"></div>
+<footer>
+<div>مدرسة صفية بنت الزبير للطفولة المبكرة ومتوسطة وثانوية السليلة · إدارة تعليم المدينة المنورة · المملكة العربية السعودية</div>
+<div style="margin-top:6px"><b>إعداد وإشراف: الموجهة الطلابية أ/ عبير القاضي</b></div>
+</footer>
+<button class="btn fab" id="fab" style="display:none">＋ إضافة محتوى</button>
+<div class="modal" id="modal"><div class="form" id="form"></div></div>
+
+<script>
+var SECS=[
+{id:"announcements",t:"الإعلانات المدرسية",i:"📢",d:"إعلانات وتنبيهات وتوجيهات للطالبات وأولياء الأمور والمعلمات"},
+{id:"magazines",t:"المجلات الإلكترونية",i:"📖",d:"مجلات توعوية وتفاعلية بصيغة PDF أو روابط"},
+{id:"honor",t:"لوحة شرف الانضباط",i:"🏅",d:"تكريم الطالبات المتميزات في الانضباط المدرسي"},
+{id:"teachers",t:"بصمة معلمة",i:"🌸",d:"تكريم المعلمات المشاركات في برامج التوجيه وشهادات الشكر"},
+{id:"student",t:"ركن الطالبة",i:"🎒",d:"مسابقات وأنشطة وقيم تربوية ومشاركات الطالبات"},
+{id:"parent",t:"ركن ولي الأمر",i:"👨‍👩‍👧",d:"رسائل توعوية وفيديوهات وإرشادات تربوية"},
+{id:"wall",t:"البرامج الإرشادية",i:"🗂️",d:"برامج إرشادية وقيم الأسبوع ومحتوى توعوي"}];
+var STAGES=["طفولة مبكرة","متوسطة","ثانوية"];
+var items=[],loaded=false,canEdit=false,db=null,assets=null,stage="الكل",delArm=null;
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function safeUrl(u){return /^https?:\/\//i.test(u||"")||/^\/_blob\//.test(u||"")?u:""}
+function sec(id){return SECS.filter(function(s){return s.id===id})[0]}
+function route(){var h=(location.hash||"#home").slice(1);if(h==="magazine-11")return "mag";return sec(h)?h:"home"}
+
+function card(it){
+  var u=safeUrl(it.url),isImg=it.ftype==="image",img=(isImg&&u)?'<img loading="lazy" src="'+esc(u)+'" alt="">':"";
+  var d=it.createdAt?new Date(it.createdAt).toLocaleDateString("ar-SA"):"";
+  var link=(u&&!isImg)?'<a class="btn" target="_blank" rel="noopener" href="'+esc(u)+'">'+(it.section==="magazines"?"تصفّح المجلة":"فتح الرابط / الملف")+'</a>':"";
+  if(it.mag)link='<a class="btn" href="#magazine-11">تصفّح المجلة</a>';var ext=safeUrl(it.link);if(ext)link+=' <a class="btn ghost" target="_blank" rel="noopener" href="'+esc(ext)+'">'+(/^\/_blob\//.test(ext)?"فتح الملف (PDF)":"فتح الرابط")+'</a>';
+  var del=canEdit?'<button class="btn del" data-del="'+esc(it.id)+'">'+(delArm===it.id?"تأكيد الحذف؟":"حذف")+'</button>':"";
+  return '<article class="card">'+img+'<div class="bd">'+(it.stage?'<span class="tag">'+esc(it.stage)+'</span>':"")+'<h3>'+esc(it.title)+'</h3>'+(it.text?'<p>'+esc(it.text)+'</p>':"")+'<div class="meta">'+esc(d)+'</div><div>'+link+'</div>'+del+'</div></article>'
+}
+function list(arr){
+  if(!loaded)return '<div class="empty">جارٍ التحميل…</div>';
+  if(!arr.length)return '<div class="empty">🌷 لا يوجد محتوى منشور في هذا القسم حاليًا.</div>';
+  return '<div class="grid">'+arr.map(card).join("")+'</div>'
+}
+function render(){
+  var r=route();
+  $("#nav").innerHTML='<a href="#home" class="'+(r==="home"?"on":"")+'">الرئيسية</a>'+SECS.map(function(s){return '<a href="#'+s.id+'" class="'+(r===s.id?"on":"")+'">'+s.t+'</a>'}).join("");
+  if(r==="mag"){magRender();return}
+  var h="";
+  if(r==="home"){
+    var news=items.filter(function(x){return x.section==="announcements"}).slice(0,3);
+    h='<section class="hero"><div class="school">مدرسة صفية بنت الزبير للطفولة المبكرة ومتوسطة وثانوية السليلة</div><h1>بوابة التوجيه الطلابي</h1><p>أهلًا بكم في بوابة قسم التوجيه الطلابي؛ منصة تجمع الأخبار والبرامج والمبادرات والمجلات التوعوية وتكريم المتميزات، لبناء شراكة تربوية بين المدرسة والطالبة وولي الأمر.</p></section><main><h2>أقسام البوابة</h2><div class="grid">'
+    +SECS.map(function(s){return '<a class="sec" href="#'+s.id+'"><div class="ic">'+s.i+'</div><b>'+s.t+'</b><span>'+s.d+'</span></a>'}).join("")
+    +'</div><h2>آخر الأخبار والإعلانات</h2>'+list(news)+'</main>';
+  }else{
+    var s=sec(r),arr=items.filter(function(x){return x.section===r}),chips="";
+    if(r==="honor"){
+      chips='<div class="chips">'+["الكل"].concat(STAGES).map(function(g){return '<button data-stage="'+g+'" class="'+(stage===g?"on":"")+'">'+g+'</button>'}).join("")+'</div>';
+      if(stage!=="الكل")arr=arr.filter(function(x){return x.stage===stage});
+    }
+    h='<main><div class="sechead"><div class="ic">'+s.i+'</div><div><h1>'+s.t+'</h1><p>'+s.d+'</p></div></div>'+chips+list(arr)+'</main>';
+  }
+  $("#app").innerHTML=h;
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-stage]");if(b){stage=b.dataset.stage;render();return}
+  var d=e.target.closest("[data-del]");
+  if(d){var id=d.dataset.del;if(delArm!==id){delArm=id;render();return}
+    delArm=null;db&&db.doc("items/"+id).delete().catch(function(){alert("تعذر الحذف")});}
+});
+window.addEventListener("hashchange",function(){delArm=null;render();window.scrollTo(0,0)});
+
+/* نموذج الإضافة */
+function openForm(){
+  var cur=route();if(cur==="home")cur="announcements";
+  $("#form").innerHTML='<h3>إضافة محتوى جديد</h3>'
+  +'<div><label>القسم</label><select id="f-sec">'+SECS.map(function(s){return '<option value="'+s.id+'"'+(s.id===cur?" selected":"")+'>'+s.t+'</option>'}).join("")+'</select></div>'
+  +'<div><label>العنوان / اسم المكرّمة</label><input id="f-title"></div>'
+  +'<div><label>النص أو الوصف (اختياري)</label><textarea id="f-text" rows="3"></textarea></div>'
+  +'<div><label>المرحلة (للوحة الشرف)</label><select id="f-stage"><option value="">—</option>'+STAGES.map(function(g){return '<option>'+g+'</option>'}).join("")+'</select></div>'
+  +'<div><label>صورة أو شهادة أو ملف PDF (اختياري)</label><input type="file" id="f-file" accept="image/*,application/pdf,video/mp4"></div>'
+  +'<div><label>رابط خارجي: مجلة / فيديو / حائط (اختياري)</label><input id="f-link" dir="ltr" placeholder="https://"></div>'
+  +'<div class="row"><button class="btn" id="f-ok">نشر</button><button class="btn ghost" id="f-no">إلغاء</button></div><div class="meta" id="f-msg"></div>';
+  $("#modal").classList.add("show");
+  $("#f-no").onclick=function(){$("#modal").classList.remove("show")};
+  $("#f-ok").onclick=save;
+}
+async function save(){
+  var title=$("#f-title").value.trim(),msg=$("#f-msg");
+  if(!title){msg.textContent="يرجى كتابة العنوان";return}
+  var doc={section:$("#f-sec").value,title:title,text:$("#f-text").value.trim(),stage:$("#f-stage").value,link:$("#f-link").value.trim(),createdAt:Date.now()};
+  var f=$("#f-file").files[0];
+  $("#f-ok").disabled=true;msg.textContent="جارٍ الحفظ…";
+  try{
+    if(f){
+      if(!assets){msg.textContent="رفع الملفات غير متاح لحسابك";$("#f-ok").disabled=false;return}
+      var a=await assets.upload(f);doc.url=a.url;doc.ftype=f.type.indexOf("image")===0?"image":"file";
+    }
+    await db.collection("items").add(doc);
+    $("#modal").classList.remove("show");
+  }catch(err){msg.textContent="تعذر الحفظ: "+((err&&err.message)||"خطأ");$("#f-ok").disabled=false}
+}
+$("#fab").onclick=openForm;
+/* المجلة المدمجة */
+var MS="مدرسة صفية بنت الزبير للطفولة المبكرة والمتوسطة والثانوية بالسليلة",MC="عبير القاضي",MPR="أسماء الزهيري",MG=[],mgi=0;
+function mgQuiz(q,o,a){return '<div class="mg-box"><b>🏆 '+q+'</b>'+o.map(function(t,i){return '<button class="mg-opt" data-a="'+(i==a?1:0)+'">'+t+'</button>'}).join('')+'</div>'}
+function mgTag(t){return '<span class="mg-tag">'+t+'</span>'}
+MG[0]=mgTag('أسبوعي · العدد 3 · الأسبوع 11 — جمادى الأولى 1448هـ')+'<h1>مجلة التوجيه الطلابي</h1><p class="mg-sub">معاً لبيئة آمنة.. لا للتنمر 🤝✨</p><p>بسم الله الرحمن الرحيم.. طالباتنا الغاليات في '+MS+'، لأننا نؤمن أن بيئتنا المدرسية واحة أمان ومحبة، نلتقي في هذا العدد لنؤكد أن القوة الحقيقية تكمن في الرفق واللين، وأننا جميعاً نقف يداً واحدة لرفض أي سلوك مؤذٍ أو تنمر. بالكلمة الطيبة والأخلاق الحسنة نزهر.. فلنكن معاً بيئة آمنة تسودها المحبة والاحترام.</p><div class="mg-stats"><div><b>7</b>صفحة</div><div><b>7</b>باب</div><div><b>الطالبات</b>موجهة إلى</div></div><p class="mg-meta">إعداد: أ/ '+MC+' — '+MS+'<br>مديرة المدرسة: أ/ '+MPR+'</p><button class="btn" data-mg="1">ابدأ القراءة ←</button>';
+MG[1]=mgTag('📑 في هذا العدد')+'<h2>ماذا في هذا العدد؟</h2><p>اختر ما يهمك، أو تصفّح الصفحات بالترتيب.</p>'+[["🌱","قيمة العدد","الرفق والتسامح",2],["💌","رسالة العدد","معاً لبيئة مدرسية آمنة.. لا للتنمر",3],["🤝","البرامج الإرشادية","برنامج رفق لتعزيز السلوك الإيجابي وخفض العنف",4],["🧠","صحتي النفسية","صحتك النفسية... تبعد عنك التنمر",5],["🏆","مسابقة العدد","اختبر معلوماتك",6],["👨‍👩‍👧","ركن الأسرة","رسالة إلى الأسرة",7],["🌟","إنجازاتنا","نفخر بكم",8]].map(function(x){return '<button class="mg-idx" data-mg="'+x[3]+'">'+x[0]+' <b>'+x[1]+'</b><br>'+x[2]+'</button>'}).join('');
+MG[2]=mgTag('🌱 قيمة العدد')+'<h2>الرفق والتسامح</h2><p>الرفق قيمة عظيمة تظهر في تعاملاتنا اليومية؛ فهو أساس المحبة، والأمان، والاحترام المتبادل بين الجميع.</p><ol><li>أختار الكلمات الطيبة والجميلة مع زميلاتي.</li><li>أرفض أي سلوك مؤذٍ أو تنمر، وأبادر بالدفاع عن صديقتي.</li><li>ألجأ إلى معلمتي أو الموجهة الطلابية بكل ثقة عند الحاجة للمساعدة.</li></ol><div class="mg-q">🌱 «الرفق عنوان الطيبة، وبه نزين أخلاقنا ونحمي مدرستنا.»</div><div class="mg-box"><b>🤔 موقف للتفكير</b><p>لاحظتِ طالبة تتعرض لمضايقة أو كلام مؤذٍ من بعض الزميلات، ما التصرف الصحيح؟</p><button class="btn mg-reveal">أظهر التصرف المقترح</button><p class="mg-hide"><b>أتدخل بلطف للدفاع عنها، وأخبر معلمتي أو الموجهة الطلابية.</b></p></div>';
+MG[3]=mgTag('💌 رسالة العدد')+'<h2>معاً لبيئة مدرسية آمنة.. لا للتنمر</h2><p>التنمر ليس مجرد مزحة، بل سلوك مؤذٍ يترك أثراً في نفسية الطفل. في مدرستنا، نؤمن بأن الرفق والكلمة الطيبة هما أساس التعامل. لنكن يداً واحدة في رفض الإيذاء، ونشر المحبة والسلام بين جميع الزميلات.</p><div class="mg-q">💌 كل صفحة خطوة.. وكل خطوة أثر</div>';
+MG[4]=mgTag('🤝 البرامج الإرشادية')+'<h2>برنامج رفق لتعزيز السلوك الإيجابي وخفض العنف</h2><p>نفّذنا هذا الشهر برنامجاً إرشادياً هدفه ترسيخ قيم التسامح واللين ونشر المحبة بين الطالبات. يركز البرنامج على توعية أطفالنا بأهمية الرفق، ونبذ كل أشكال التنمر والإيذاء، لخلق بيئة مدرسية آمنة ومحفزة للإبداع والتحصيل الدراسي.</p><ol><li>الهدف الأول: غرس قيمة الرفق والتسامح والأخلاق الحسنة في نفوس الطالبات.</li><li>الهدف الثاني: التصدي للتنمر المدرسي وتوعية الطالبات بطرق الوقاية السليمة والإبلاغ المبكر.</li><li>الهدف الثالث: تعزيز السلوكيات الإيجابية وبناء شراكة واعية مع الأسر لدعم الاستقرار النفسي للطالبات.</li></ol><div class="mg-q">🤝 بالرفق نزين أخلاقنا.. ونبني بيئة مدرسية آمنة خالية من التنمر. 🌸</div>'+mgQuiz('ما التصرف الصحيح إذا لاحظتِ طالبة تتعرض لمضايقة أو إيذاء من زميلة أخرى؟',['أشارك في السخرية معهن','أتدخل بلطف للدفاع عنها وأخبر الموجهة الطلابية','أسكت ولا اهتمام لي بالأمر'],1)+'<div class="mg-box"><b>✍️ دورك الآن</b><p>اقرئي العبارة الآتية واختاري الابتسامة المناسبة: (الكلمة الطيبة تُشعرني بالأمان والسعادة).. هل توافقينني الرأي؟ شاركي رأيكِ مع صديقتكِ اليوم وانشري الود بين الجميع. 🌸</p><p style="font-size:1.6rem;margin:0">😊 &nbsp; 😐 &nbsp; 😞</p></div>';
+MG[5]=mgTag('🧠 صحتي النفسية')+'<h2>صحتك النفسية... تبعد عنك التنمر</h2><p>القلق شعور طبيعي قد يمر بنا جميعاً، وخاصة عندما نتعرض لمضايقات أو سلوكيات مزعجة مثل التنمر. المهم حقاً هو أن نعرف كيف نتعامل معه بهدوء ووعي، وألا نجعل الخوف يسرق فرحتنا، فمدرستنا بيئة آمنة تدعم صحتنا النفسية.</p><ol><li>أتنفس بعمق وببطء: لتهدئة الخوف عند التعرض لمضايقة أو إزعاج من زميلة، واستعادة الشعور بالأمان.</li><li>أتحدث مع شخص أثق به: لإخبار المعلمة أو الموجهة الطلابية فوراً عن أي تصرف مؤذٍ أو تنمر يزعجني.</li><li>أمارس نشاطاً أحبه: كالابتعاد عن مكان الإزعاج وممارسة هوايتي المفضلة لاستعادة طاقتي الإيجابية وسعادتي.</li></ol><div class="mg-q">🧠 مشاعري أمانة، وقلقي يزول بالحديث عنه.. وبالرفق نحمي أنفسنا من التنمر. 🌸</div>';
+MG[6]=mgTag('🏆 مسابقة العدد')+'<h2>اختبر معلوماتك</h2><p>كوني الفتاة الطيبة التي تنشر الرفق والمحبة، واعلمي أن الوقوف بجانب الزميلة ومساعدة من تتعرض لإزعاج أو تنمر هو دليل على طيب أصلك ونبل أخلاقك. 🌸</p>'+mgQuiz('ماذا تفعلين عندما ترين زميلتكِ وحيدة وتحتاج لمن يشاركها اللعب؟',['أتجاهلها وأتركها وحدها طوال الوقت','أتقرب منها بلطف وأدعوها لتشاركني ألعابي وأنشطتي','أمنع بقية الزميلات من اللعب معها'],1);
+MG[7]=mgTag('👨‍👩‍👧 ركن الأسرة')+'<h2>رسالة إلى الأسرة</h2><p>التنمر هو إزعاج أو إيذاء متكرر بالكلمات أو الأفعال؛ لذا نحتاج لتعاون الأسرة والمدرسة لتعليم أطفالنا لغة الرفق والاحترام، وحمايتهم ليعيشوا بأمان وسعادة. 🌸</p><ol><li>غرس ثقافة المسامحة: تعليم الأبناء قيمة التسامح والصفح، مع توجيههم لرفض أي إيذاء أو تنمر بحزم ولطف.</li><li>بناء الثقة والأمان: تعزيز شعور الطفل بالأمان والاطمئنان، وتشجيعه المستمر للتعبير عن مشاعره بحرية دون تردد.</li><li>نشر خلق الرفق: حث الأبناء على معاملة زملائهم بلطف واحترام، ليكونوا صناعاً للسلام والمحبة في بيئتهم المدرسية.</li></ol>';
+MG[8]=mgTag('🌟 إنجازاتنا')+'<h2>نفخر بكم</h2><p>نَفخر بكل طالبة متميزة تتحلى بالأخلاق الحسنة، وتنشر الرفق والمحبة بين زميلاتها، وتواجه كل سلوك مزعج أو تنمر بوعي وشجاعة لتبقى بيئتنا المدرسية آمنة ومبدعة. 🌸🌟</p>';
+MG[9]=mgTag('🌟 ختام العدد')+'<h2>شكراً لقراءتك!</h2><p>وصلنا إلى آخر المجلة، لكن رحلتنا في نشر الرفق والمحبة مستمرة كل يوم. تذكّرن دائماً: أرفض التنمر، أختار الكلمة الطيبة، أدافع عن صديقتي، وألجأ لمن يوجهني بحكمة. أنتن قادرات على صنع بيئة مدرسية آمنة ومبدعة. شكراً لكل طالبة شاركت معنا لنرتقي بأخلاقنا، ونلتقي في العدد القادم بكل حب. 🌷</p><p class="mg-sub">الموجهة الطلابية: أ/ '+MC+'</p><p class="mg-sub">مديرة المدرسة: أ/ '+MPR+'</p><p class="mg-meta">إعداد: أ/ '+MC+' — '+MS+'</p><button class="btn" data-mg="0">العودة إلى الغلاف</button>';
+function magRender(){
+  $("#app").innerHTML='<main><div class="mg-wrap"><div class="mg-page">'+MG[mgi]+'</div><div class="mg-nav"><button class="btn" data-mg="'+(mgi+1)+'"'+(mgi>=MG.length-1?' disabled':'')+'>التالية ←</button><a class="btn ghost" href="#magazines">المجلات</a><button class="btn ghost" data-mg="'+(mgi-1)+'"'+(mgi<=0?' disabled':'')+'>→ السابقة</button></div><div class="mg-prog">'+(mgi+1)+' / '+MG.length+'</div></div></main>';
+}
+document.addEventListener("click",function(e){
+  var m=e.target.closest("[data-mg]");if(m&&!m.disabled&&route()==="mag"){mgi=+m.dataset.mg;magRender();window.scrollTo(0,0);return}
+  var r=e.target.closest(".mg-reveal");if(r){r.nextElementSibling.classList.remove("mg-hide");r.remove();return}
+  var o=e.target.closest(".mg-opt");if(o){o.parentNode.querySelectorAll(".mg-opt").forEach(function(x){x.classList.remove("ok","no")});o.classList.add(o.dataset.a==="1"?"ok":"no")}
+});
+
+$("#modal").addEventListener("click",function(e){if(e.target.id==="modal")$("#modal").classList.remove("show")});
+
+render();
+setTimeout(function(){if(!loaded){loaded=true;render()}},10000);
+(async function(){
+  try{
+    var user=await claude.use("user");canEdit=user?await user.canEdit():false;
+    assets=await claude.use("assets");db=await claude.use("db");
+    $("#fab").style.display=canEdit?"block":"none";
+    if(!db){loaded=true;render();return}
+    db.collection("items").orderBy("createdAt","desc").onSnapshot(function(s){
+      items=s.docs.map(function(d){var o=d.data();o.id=d.id;return o});loaded=true;render();
+    },function(){loaded=true;render()});
+  }catch(e){loaded=true;render()}
+})();
+</script>
+</body>
+</html>
